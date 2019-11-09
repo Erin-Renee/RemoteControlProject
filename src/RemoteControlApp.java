@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class RemoteControlApp {
+	
 	/*
 	 * Overview 
 	 * We are going to simulate a remote control. It will have buttons "0"
@@ -14,20 +15,56 @@ public class RemoteControlApp {
 		Scanner keyboard = new Scanner(System.in);
 		
 		System.out.println("To Begin, Turn ON The Remote Control: ");
-		String userInput = keyboard.next();
+		String userInput = keyboard.next().toLowerCase();
 		
-		while (!userInput.equals("ON")) {
+		while (!userInput.equals("on")) {
 			System.out.println("Please Turn ON Remote To Use Features");
-			userInput = keyboard.next();
-			
+			userInput = keyboard.next().toLowerCase();
+			turningON();
 		}
-		pressButton();
-		
+		turningON();	// tells program to go to main "turningON()"
+
 	}
 	
-	public static void pressButton() {
-		System.out.println("button Pressed");
+	public static void turningON() {
+		System.out.println("Turning ON.... ");
+		pressButton();		// Tells program to go to main "pressButton()"
 	}
-// TODO: Add pressButton() method
-// TODO: AddturnOn() method
+	public static void pressButton() {
+		System.out.println("BOOP!");
+		
+		inputNum();		//tells program to go to main "inputNum()"
+	}
+	public static void inputNum() {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Please Input a Number 0 through 9: ");
+		String userInput = keyboard.next().toLowerCase();		//prompts user to input another number
+	    switch (userInput) {
+	    	case "0":
+	      case "1":
+	      case "2":
+	      case "3":
+	      case "4":
+	      case "5":
+	      case "6":
+	      case "7":
+	      case "8":
+	      case "9":
+	    	  pressButton();			//sends program back to main "pressButton()" BOOP!
+	    	  break;
+	      case "off":
+	    	  turningOff();
+	    	  break;
+	      default:
+	          System.err.println("Command Not Recognized");
+	          inputNum();
+	    }
+	    keyboard.close();
+	    }
+		public static void turningOff() {
+			System.out.println("TURNING OFF....");
+		
+	}
 }
+
+//usweInput = keyboard.next().toLowerCase():
