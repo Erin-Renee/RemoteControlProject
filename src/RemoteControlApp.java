@@ -20,7 +20,6 @@ public class RemoteControlApp {
 		while (!userInput.equals("on")) {
 			System.out.println("Please Turn ON Remote To Use Features");
 			userInput = keyboard.next().toLowerCase();
-			turningON();
 		}
 		turningON();	// tells program to go to main "turningON()"
 
@@ -28,7 +27,7 @@ public class RemoteControlApp {
 	
 	public static void turningON() {
 		System.out.println("Turning ON.... ");
-		pressButton();		// Tells program to go to main "pressButton()"
+		inputNum();		// Tells program to go to method "inputNum();"
 	}
 	public static void pressButton() {
 		System.out.println("BOOP!");
@@ -67,4 +66,3 @@ public class RemoteControlApp {
 	}
 }
 
-//usweInput = keyboard.next().toLowerCase():
